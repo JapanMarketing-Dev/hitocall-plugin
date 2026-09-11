@@ -11,13 +11,19 @@ claude plugin marketplace add JapanMarketing-Dev/hitocall-plugin
 claude plugin install hitocall@hitocall
 ```
 
+Antigravity CLI（Gemini）:
+
+```bash
+agy plugin install https://github.com/JapanMarketing-Dev/hitocall-plugin.git
+```
+
 Gemini CLI（Code Assist Standard / Enterprise、または有料APIキー利用者）:
 
 ```bash
 gemini extensions install https://github.com/JapanMarketing-Dev/hitocall-plugin
 ```
 
-個人向けのGemini CLI（無料・Google AI Pro / Ultra）は2026年6月18日からAntigravityへ移行しました。Antigravity CLIは下記のZIPから追加できます。旧CLIを個人アカウントで起動する手順は使わないでください。
+個人向けのGemini CLI（無料・Google AI Pro / Ultra）は2026年6月18日からAntigravityへ移行しました。Antigravity CLIは上の1コマンドで追加できます。旧CLIを個人アカウントで起動する手順は使わないでください。
 [Googleの移行案内](https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/)
 
 この配布元はJapanMarketingが運営する公開カタログです。各AI事業者の公式ディレクトリ掲載とは別です。
