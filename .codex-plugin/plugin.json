@@ -1,0 +1,31 @@
+{
+  "name": "hitocall",
+  "version": "0.1.0",
+  "description": "御社のAIに、電話する人を。初期設定・依頼準備・通話結果の取得と改善をAIから。",
+  "author": {
+    "name": "JapanMarketing合同会社",
+    "url": "https://hitocall.com"
+  },
+  "homepage": "https://hitocall.com/docs",
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "ヒトコール",
+    "shortDescription": "御社のAIに、電話する人を。",
+    "longDescription": "御社のAIに、電話する人を。初期設定・依頼準備・通話結果の取得と改善をAIから。",
+    "developerName": "JapanMarketing合同会社",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://hitocall.com",
+    "privacyPolicyURL": "https://hitocall.com/legal/privacy",
+    "termsOfServiceURL": "https://hitocall.com/legal/terms",
+    "defaultPrompt": [
+      "ヒトコールの初期設定を進めて",
+      "この商材で法人への電話を1回から準備して",
+      "通話結果から次の台本を改善して"
+    ]
+  }
+}

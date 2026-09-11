@@ -1,0 +1,17 @@
+{
+  "name": "hitocall",
+  "owner": {
+    "name": "JapanMarketing合同会社",
+    "url": "https://hitocall.com"
+  },
+  "plugins": [
+    {
+      "name": "hitocall",
+      "source": {
+        "source": "github",
+        "repo": "JapanMarketing-Dev/hitocall-plugin"
+      },
+      "description": "御社のAIに、電話する人を。初期設定・依頼準備・通話結果の取得と改善をAIから。"
+    }
+  ]
+}
