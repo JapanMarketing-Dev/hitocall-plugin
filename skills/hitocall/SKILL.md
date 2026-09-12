@@ -13,6 +13,10 @@ description: ヒトコールで法人への電話を依頼するときに使う�
 
 `create_offer`、`create_campaign`、`import_leads`、`set_booking_url` を使って準備する。ツールの入力スキーマを読み、台本は会話の分岐まで用意する。注文前に `create_supervision_program` で担当者向けの商品説明・FAQ・確認問題・評価基準を作る。教育パックも案件版を更新するため、準備後に `validate_script` と `validate_campaign` の結果を確認し、失敗箇所を修正する。同じ更新の再送は同じ `request_key` を使い、別の更新に使い回さない。
 
+架電期間、曜日、時間帯、再架電の間隔を利用者に確認して設定してください。土日・祝日や夜間を含め、全曜日・全時間帯の指定が可能です。固定の営業時間を前提とせず、相手先の営業状況と利用者の希望に合わせて設定します。
+
+`call_policy.calling_windows` uses ISO weekdays 1=Monday to 7=Sunday and Japan-time `start_time` / `end_time`. An end earlier than the start continues into the next day; 00:00–24:00 means all day. Set `retry_interval_minutes` as the minimum minutes after the previous call ends. Apply `requested_start_at` and `latest_start_at` as the overall period. Read tools/list for the exact current schema.
+
 予約URLなどの必須情報が未提供なら、その情報だけを顧客に確認する。会社・商材・対象・予約URLは顧客が提供または利用を許可した実際の情報を使い、架空の値や仮URLで埋める提案をしない。不足情報に依存しない準備は先に進め、保存できたものと未保存のものを分けて伝える。
 
 `quote_campaign` で件数・税込金額・実行条件を確認する。件数が未指定なら、まず1回から提案する。利用者が指定した予算・件数・対象・期限と、サービスに保存された予算委任の両方を守る。MCP接続の許可やチャットで示された金額だけを、カードの利用許可にしない。
