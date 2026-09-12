@@ -34,6 +34,10 @@
 
 一覧の `next_cursor` はなくなるまで取得する。結果一覧は証拠本文を含めない。`get_result` の `evidence_page.next_cursor` を次の `evidence_cursor` に渡し、全 `total` 件を取得する。一部だけで通話全体を評価しない。途中で結果が更新された場合は先頭から読み直す。共通解析が入力上限を超える場合は、`create_analysis` に `evidence_range: {start_index: 0, end_index: 10}` のような終了位置を含まない範囲を指定し、次は10から続きを処理する。返された対象範囲と全証拠数を確認し、部分解析を全体の完了と扱わない。
 
-面談候補がある場合、顧客の資料や利用許可のある予約システムで、日時と外部予約IDを照合する。確認できた事実と根拠だけを `confirm_appointment` で記録し、`get_result` で確定状態を確認する。この操作は予約を作成しない。予約URLを案内しただけ、またはAIが日時を推測しただけでは確定しない。通話上の同意・役割の根拠不足は運営確認として扱い、補って申告しない。面談後は顧客から確認できた実施・取消等を `submit_appointment_feedback` で記録し、`get_result` の `appointment_feedback` で保存内容を確認する。通話時点の結果と面談後の記録を混同しない。
+顧客の資料や利用許可のある予約システムで日時・外部予約IDを照合し、確認理由を記録する。同意根拠を追加する場合は、get_transcript_contentで相手の発言と前後の会話を確認し、面談への同意が確認できた区間をconsent_evidenceで指定する。artifact_id・artifact_versionには取得した文字起こしの値を設定し、segment_indexはoffsetとページ内位置から求めてconfirmedにtrueを指定する。自由入力の発言や推測を根拠にしてはならない。同意根拠・役職・予約確認が揃わない場合は未確定のままとなるため、get_resultで結果を確認すること。外部予約の作成や外部通信は行わない。再送時はrequest_keyを維持する。
+
+`segment_index = offset + page_position`（`page_position`: `0, 1, 2, ...`）。
+
+面談後は顧客から確認できた実施・取消等を `submit_appointment_feedback` で記録し、`get_result` の `appointment_feedback` で保存内容を確認する。通話時点の結果と面談後の記録を混同しない。
 
 実行前、受付済み、架電済み、録音取得済み、決済済みを同じ「完了」にまとめない。回答は利用者の言語で、操作結果と次に必要なことを簡潔に示す。

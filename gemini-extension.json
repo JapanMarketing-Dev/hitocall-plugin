@@ -1,6 +1,6 @@
 {
   "name": "hitocall",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "御社のAIに、電話する人を。初期設定・依頼準備・通話結果の取得と改善をAIから。",
   "mcpServers": {
     "hitocall": {
